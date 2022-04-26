@@ -14,6 +14,7 @@ DONAL_ID = 357336111158263810
 class Functionality(commands.Cog):
     """A class that holds the functionality of the bot"""
     def __init__(self, bot):
+        self.count = 0
         self.bot = bot
         self.yas_count = 0
         self.omari_talked = False
@@ -25,17 +26,17 @@ class Functionality(commands.Cog):
     async def message_reponse(self, msg):
         """Command that will listen in general chat and give wanted responses"""
         # Tracking if Yasmine talked for the first time message
-        if msg.author.id == YAS_ID and self.yas_count == 0:
-            await msg.reply('Please stop typing in this chat')
-            self.yas_count += 1
+        # if msg.author.id == YAS_ID and self.yas_count == 0:
+        #     await msg.reply('Please stop typing in this chat')
+        #     self.yas_count += 1
 
         # After the first talked from Yasmine it will now track and give them 5 left talks until ban
-        elif msg.author.id == YAS_ID and self.yas_count > 0 and self.yas_count < 6:
-            await msg.reply(f"You have { 5 - self.yas_count } messages left.")
-            await msg.add_reaction("👎")
-            self.yas_count += 1
+        # elif msg.author.id == YAS_ID and self.yas_count > 0 and self.yas_count < 6:
+        #     await msg.reply(f"You have { 5 - self.yas_count } messages left.")
+        #     await msg.add_reaction("👎")
+        #     self.yas_count += 1
         # Checks if Omari talks and will reply with a nice message
-        elif msg.author.id == OMARI_ID and self.omari_talked is not True:
+        if msg.author.id == OMARI_ID and self.omari_talked is not True:
             await msg.reply("Welcome back King")
             await msg.add_reaction("👑")
             self.omari_talked = True
@@ -67,14 +68,14 @@ class Functionality(commands.Cog):
     #     for i in range(10):
     #       await user.send("Stop Typing")
     #       await asyncio.sleep(1)
-@commands.command(name="ye")
-async def _quote(ctx):
-    """Function that will display Kan(YE) quotes in "general" text channel"""
-    ret = post('https://api.kanye.rest')
-    await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
+    @commands.command(name="ye")
+    async def _ye(self, ctx):
+        """Function that will display Kan(YE) quotes in "general" text channel"""
+        ret = post('https://api.kanye.rest')
+        self.count += 1
+        await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
 
 
 def setup(bot):
     """Setup for the bot"""
     bot.add_cog(Functionality(bot))
-    
