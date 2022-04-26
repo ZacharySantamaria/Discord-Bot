@@ -1,6 +1,6 @@
 name: Pylint
 
-on: [pull_requests]
+on: [push, pull_requests]
 
 jobs:
   build:
@@ -17,9 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install discord
-        pip install pylint
-        pip install requests
+        pip install discord pylint requests python-dotenv
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
