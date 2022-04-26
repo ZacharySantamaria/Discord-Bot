@@ -1,4 +1,4 @@
-"""Creation of a class to add functionality to the bot. These will be general things like 
+"""Creation of a class to add functionality to the bot. These will be general things like
 text listners and small commands."""
 from discord.ext import commands
 from requests import post
@@ -19,12 +19,6 @@ class Functionality(commands.Cog):
         self.omari_talked = False
 
     # Commands definitions
-
-    @commands.command()
-    async def kanye_quote(self, ctx):
-        """Function that will display Kan(YE) quotes in "general" text channel"""
-        ret = post('https://api.kanye.rest')
-        await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
 
     # Text listener behavior
     @commands.Cog.listener('on_message')
@@ -47,7 +41,7 @@ class Functionality(commands.Cog):
             self.omari_talked = True
 
         # Will always react to Omari's and I messages
-        elif msg.author.id == OMARI_ID or msg.author.id == ZACK_ID:
+        elif msg.author.id in (OMARI_ID, ZACK_ID):
             await msg.add_reaction("👑")
 
         # Reaction for Sanita
@@ -73,8 +67,14 @@ class Functionality(commands.Cog):
     #     for i in range(10):
     #       await user.send("Stop Typing")
     #       await asyncio.sleep(1)
+@commands.command(name="ye")
+async def _quote(ctx):
+    """Function that will display Kan(YE) quotes in "general" text channel"""
+    ret = post('https://api.kanye.rest')
+    await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
 
 
 def setup(bot):
     """Setup for the bot"""
     bot.add_cog(Functionality(bot))
+    
