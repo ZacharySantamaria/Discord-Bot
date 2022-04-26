@@ -1,26 +1,31 @@
 from discord.ext import commands
 from requests import post
-import asyncio
-
-
+# import asyncio
 class functionality(commands.Cog):
+
+
+
 
   def __init__(self, bot):
     self.bot = bot
+
     self.ZackId = 288899751850672138
     self.yasmineID = 474609160487698463
     self.omariID = 443940248993398786
     self.sanitaID = 438175368483176448
     self.xaviID = 186427201103593472
     self.donalID = 357336111158263810
-
     self.yasCount = 0
     self.omariTalked = False
 
   
+  # Commands definitions
+  @commands.command()
+  async def ye(self, ctx):
+    ret = post('https://api.kanye.rest')
+    await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
 
-  #The General replies I want for when I speak 
-  # or when someone else speaks
+  # Text listener behavior
   @commands.Cog.listener('on_message')
   async def hi_detector(self, msg):
     
@@ -56,14 +61,9 @@ class functionality(commands.Cog):
     elif msg.author.id == self.donalID:
       await msg.add_reaction("🍣")
     
-  @commands.command()
-  async def say(self, ctx, *, msg):
-    await ctx.reply(msg)
-  
-  @commands.command()
-  async def ye(self, ctx):
-    ret = post('https://api.kanye.rest')
-    await ctx.send(f"\"{ret.json()['quote']}\" - Kan(Ye) West")
+  # @commands.command()
+  # async def deleteMsg(self, ctx, *, msg):
+  #   await 
 
 
   # @commands.Cog.listener('on_message')
