@@ -3,8 +3,6 @@
 from os import getenv
 import discord
 from dotenv import load_dotenv
-from discord.ext import commands
-import asyncio
 
 
 
@@ -25,23 +23,24 @@ intents = discord.Intents.default()
 # intents.members = True
 client = discord.Client(intents=intents)
 
-"""Setting to the bots on ready"""
 @client.event
 async def on_ready():
+    """Setting to the bots on ready"""
     print(f'We have logged in as {client.user}')
     game = discord.Game("with your mom")
     await client.change_presence(status=discord.Status.online, activity=game)
 
-"""This event is used for looking through a new message and will find the specified authors and 
- will do an action. The current version is only reacting to the messages. Could possibly add 
- a counter and track however many types a person types then bans them"""
+
 @client.event
 async def on_message(message):
+    """This event is used for looking through a new message and will find the specified authors and
+     will do an action. The current version is only reacting to the messages. Could possibly add
+     a counter and track however many types a person types then bans them"""
     if message.author == client.user:
         return
 
     # Reaction for Zack
-    elif message.author.id == ZACK_ID:
+    if message.author.id == ZACK_ID:
         await message.add_reaction("👔")
 
     # Reaction for Omari
