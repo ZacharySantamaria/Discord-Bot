@@ -8,16 +8,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = getenv('MAIN_TOKEN')
-# ZACK_ID = getenv('ZACK_ID')
-# print(ZACK_ID)
-ZACK_ID = 288899751850672138
-OMARI_ID = 443940248993398786
-SANITA_ID = 438175368483176448
-XAVI_ID = 186427201103593472
-DONAL_ID = 357336111158263810
-RYAN_ID = 290226329666977792
-MEL_ID = 498000225374306324
-CAIMAN_ID = 612872499515883521
+ZACK_ID = int(getenv('ZACK_ID'))
+OMARI_ID = int(getenv('OMARI_ID'))
+SANITA_ID = int(getenv('SANITA_ID'))
+XAVI_ID = int(getenv('XAVI_ID'))
+DONAL_ID = int(getenv('DONAL_ID'))
+RYAN_ID = int(getenv('RYAN_ID'))
+MEL_ID = int(getenv('MEL_ID'))
+CAIMAN_ID = int(getenv('CAIMAN_ID'))
 
 intents = discord.Intents.default()
 # intents.members = True
