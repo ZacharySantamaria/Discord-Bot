@@ -4,8 +4,6 @@ from os import getenv
 import discord
 from dotenv import load_dotenv
 
-
-
 load_dotenv()
 TOKEN = getenv('MAIN_TOKEN')
 ZACK_ID = int(getenv('ZACK_ID'))
@@ -20,6 +18,7 @@ CAIMAN_ID = int(getenv('CAIMAN_ID'))
 intents = discord.Intents.default()
 # intents.members = True
 client = discord.Client(intents=intents)
+
 
 @client.event
 async def on_ready():
@@ -65,5 +64,6 @@ async def on_message(message):
 
     else:
         print(f'{message.author} has typed {message.content}')
+
 
 client.run(TOKEN)
