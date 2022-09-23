@@ -1,3 +1,5 @@
+[![Pylint](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/pylint.yml)
+
 # Discord-Bot
 My personal discord bot hosted on a raspberry Pi.
 
