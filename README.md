@@ -1,5 +1,5 @@
 [![Pylint](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/pylint.yml)
-
+[![Docker Image CI](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/docker-image.yml/badge.svg)](https://github.com/ZacharySantamaria/Discord-Bot/actions/workflows/docker-image.yml)
 # Discord-Bot
 My personal discord bot hosted on a raspberry Pi.
 
