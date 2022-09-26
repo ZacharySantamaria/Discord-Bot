@@ -21,7 +21,7 @@ CAIMAN_ID = int(getenv('CAIMAN_ID'))
 CHANNEL = int(getenv('CHANNEL_ID'))
 
 intents = discord.Intents.default()
-intents.members = True
+intents.members = True # pylint: disable=abstract-class-instantiated
 client = discord.Client(intents=intents)
 
 
