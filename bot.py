@@ -34,13 +34,16 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    """A custom message for new members that join. The idea is to base it off of chappie from the movie."""
-    await member.send("What's up fuck mother. I am a creation from my dad Zack. I will eliminate you if you are mean. Have fun in the server!")
+    """A custom message for new members that join. 
+    The idea is to base it off of chappie from the movie."""
+    await member.send("What's up fuck mother. I am a creation from my dad Zack. \
+    I will eliminate you if you are mean. Have fun in the server!")
 
 
 @client.event
 async def on_member_remove(member):
-    """A cusom message will be made when someone is kicked or removed. This message will be somewhat based on the movie with my own twist."""
+    """A cusom message will be made when someone is kicked or removed.
+    This message will be somewhat based on the movie with my own twist."""
     general_channel = client.get_channel(CHANNEL)
     await general_channel.send(f"Sorry dad but I wanted to tell you that {member.name} just left the server.")
 
