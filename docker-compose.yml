@@ -1,0 +1,7 @@
+services:
+  discord_bot:
+    build: .
+    command: python bot.py
+    volumes:
+      - .:/bot
+    restart: always

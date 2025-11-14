@@ -83,9 +83,6 @@ async def on_message(message):
     elif message.author.id == RYAN_ID:
         await message.add_reaction("🔥")
 
-    elif message.author.id == MEL_ID:
-        await message.add_reaction("💅")
-
     elif message.author.id == CAIMAN_ID:
         await message.add_reaction("🦂")
 
