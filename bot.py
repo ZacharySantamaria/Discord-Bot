@@ -11,11 +11,9 @@ TOKEN = getenv("MAIN_TOKEN")
 LANDO_ID = int(getenv("LANDO_ID"))
 ZACK_ID = int(getenv("ZACK_ID"))
 OMARI_ID = int(getenv("OMARI_ID"))
-SANITA_ID = int(getenv("SANITA_ID"))
 XAVI_ID = int(getenv("XAVI_ID"))
 DONAL_ID = int(getenv("DONAL_ID"))
 RYAN_ID = int(getenv("RYAN_ID"))
-MEL_ID = int(getenv("MEL_ID"))
 CAIMAN_ID = int(getenv("CAIMAN_ID"))
 
 # Getting channel IDs
@@ -70,10 +68,6 @@ async def on_message(message):
     # Reaction for Omari
     elif message.author.id == OMARI_ID:
         await message.add_reaction("🧸")
-
-    # Reaction for Sanita
-    elif message.author.id == SANITA_ID:
-        await message.add_reaction("🍓")
 
     # Reaction for Donal
     elif message.author.id == DONAL_ID:
